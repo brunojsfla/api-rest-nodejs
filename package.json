@@ -1,10 +1,13 @@
 {
   "name": "02-api-rest-nodejs",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint src -ext .ts --fix"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,15 @@
   "bugs": {
     "url": "https://github.com/brunojsfla/api-rest-nodejs/issues"
   },
-  "homepage": "https://github.com/brunojsfla/api-rest-nodejs#readme"
+  "homepage": "https://github.com/brunojsfla/api-rest-nodejs#readme",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
+    "@types/node": "^18.15.3",
+    "eslint": "^8.36.0",
+    "tsx": "^3.12.5",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "fastify": "^4.14.1"
+  }
 }
