@@ -1,13 +1,19 @@
 import fastify from 'fastify'
+import { knex } from './database'
+import { env } from './env'
 
 const app = fastify()
 
 // Declara a rota
-app.get('/hello', () => {
-  return 'Olá, mundo!'
+app.get('/hello', async () => {
+  const transaction = await knex('transactions')
+    .where('amount', 100)
+    .select('*')
+
+  return transaction
 })
 
 // Run server
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: env.PORT }).then(() => {
   console.log('Server Running!')
 })
